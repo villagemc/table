@@ -8,11 +8,17 @@ const limit = 10;
 const form = document.querySelector('form');
 const table = document.querySelector('table');
 const tableBody = document.querySelector('tbody');
+const tableTitles = document.querySelectorAll('th');
 const elementLoading = document.querySelector('hr');
 const elementError = document.querySelector('p');
 
 // Получение айдишников титульных тегов таблицы:
-const tableTitleIDs = Array.from(document.querySelectorAll('th')).map(title => title.id);
+// Добавление контекта в титульные теги:
+const tableTitleIDs = Array.from(tableTitles).map(title => 
+  title.textContent = title.id
+);
+
+console.log(tableTitleIDs);
 
 // Получение данных о скроллах страницы:
 function getInfoScroll() {
@@ -88,13 +94,13 @@ function generateFilterTable(event) {
 
   // Фильтрованный массив:
   tableFilters = tableInfos.filter((info) => (
-    tableTitleIDs.some((tableTitleID) => (
-      String(info[tableTitleID])
-        .toLowerCase()
-        .includes(
-          search.toLowerCase()
-        )
-    ))
+    // Если хотя бы 1 значение верно, верни елемент массива:
+    tableTitleIDs.some((tableTitleID) => {
+      const data = String(info[tableTitleID]).toLowerCase();
+      const param = search.trim().toLowerCase();
+
+      return data.includes(param);
+    })
   ));
 
   // Очистка при фильтрации:

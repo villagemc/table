@@ -62,6 +62,10 @@ td, th {
   font-size: 14px;
 }
 
+th {
+  text-transform: capitalize;
+}
+
 td:nth-child(3) {
   word-break: break-all;
 }
