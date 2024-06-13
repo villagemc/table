@@ -185,7 +185,7 @@ async function generateFetchTable() {
 // Генерация таблицы или ошибки в зависимости от ответа запроса:
 generateFetchTable();
 
-// Событие: есть ли заданное значение в массиве таблицы:
+// Фильтрация данных по поисковому значению:
 form.addEventListener('submit', generateFilterTable);
 
 // Подгрузка данных при скроллинге:
