@@ -62,6 +62,7 @@ function toggleError({ isTable,  messageError}) {
 function createErrorEvent(messageError) {
   form.removeEventListener('submit', generateFilterTable);
   window.removeEventListener('scroll', generateUpdateAndScrollTable);
+  window.removeEventListener('resize', generateRecursionTable);
 
   toggleError({ isTable: false, messageError });
 }
@@ -186,4 +187,9 @@ generateFetchTable();
 
 // Событие: есть ли заданное значение в массиве таблицы:
 form.addEventListener('submit', generateFilterTable);
+
+// Подгрузка данных при скроллинге:
 window.addEventListener('scroll', generateUpdateAndScrollTable);
+
+// Подгрузка данных при масштабировании:
+window.addEventListener('resize', generateRecursionTable);
