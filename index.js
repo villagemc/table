@@ -60,6 +60,7 @@ function toggleError({ isTable,  messageError}) {
 
 // Создание ошибки таблицы, если она пустая или выдает ошибку при запросе:
 function createErrorEvent(messageError) {
+  // Отключение событий, т.к в них нет необходимости при ошибке запроса:
   form.removeEventListener('submit', generateFilterTable);
   window.removeEventListener('scroll', generateUpdateAndScrollTable);
   window.removeEventListener('resize', generateRecursionTable);
