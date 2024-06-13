@@ -13,7 +13,7 @@ const elementLoading = document.querySelector('hr');
 const elementError = document.querySelector('p');
 
 // Получение айдишников титульных тегов таблицы:
-// Добавление контекта в титульные теги:
+// Добавление контента в титульные теги:
 const tableTitleIDs = Array.from(tableTitles).map(title => 
   title.textContent = title.id
 );
