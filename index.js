@@ -18,8 +18,6 @@ const tableTitleIDs = Array.from(tableTitles).map(title =>
   title.textContent = title.id
 );
 
-console.log(tableTitleIDs);
-
 // Получение данных о скроллах страницы:
 function getInfoScroll() {
   return {
